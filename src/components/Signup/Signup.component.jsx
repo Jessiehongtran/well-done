@@ -29,7 +29,12 @@ const SignUp = props => {
       axios
       .post("https://welldone-server.herokuapp.com/api/accounts", user)
       .then(res => {
-        console.log("res", res.data);
+        console.log("res in signup", res.data);
+        if (res == undefined){
+            return (
+                <div>Loading...</div>
+            )
+        }
         props.history.push("/signin");
       })
       .catch(err => {
@@ -47,13 +52,15 @@ const SignUp = props => {
             <Form onSubmit={handleSubmit} style={{ maxWidth: "400px" , border: "5px solid white", padding: "20px", backgroundColor: "#EAE6E6"}}>
                 <Form.Item>
                 <Input 
+                    type="text"
                     placeholder="First Name"
                     onChange={handleChange}
                     name="first_name"
                 />
                 </Form.Item>
                 <Form.Item>
-                <Input 
+                <Input
+                    type="text" 
                     placeholder="Last Name"
                     onChange={handleChange}
                     name="last_name"
@@ -61,6 +68,7 @@ const SignUp = props => {
                 </Form.Item>
                 <Form.Item>
                 <Input 
+                    type="email"
                     placeholder="Email Address"
                     onChange={handleChange}
                     name="email_address"
@@ -68,6 +76,7 @@ const SignUp = props => {
                 </Form.Item>
                 <Form.Item>
                 <Input 
+                    type="password"
                     placeholder="Password"
                     onChange={handleChange}
                     name="password"
