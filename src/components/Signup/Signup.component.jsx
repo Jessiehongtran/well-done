@@ -8,7 +8,8 @@ const { Title } = Typography;
 
 const SignUp = props => {
   const [user, setUser] = useState({})
-  
+  const [loading, setLoading] = useState(false)
+
   const handleChange = e => {
     let val = e.target.value
     if (val == "true"){
@@ -25,16 +26,13 @@ const SignUp = props => {
 
   const handleSubmit = e => {
       e.preventDefault()
+      setLoading(true)
       console.log('user', user)
       axios
       .post("https://welldone-server.herokuapp.com/api/accounts", user)
       .then(res => {
         console.log("res in signup", res.data);
-        if (res == undefined){
-            return (
-                <div>Loading...</div>
-            )
-        }
+        
         props.history.push("/signin");
       })
       .catch(err => {
@@ -122,9 +120,15 @@ const SignUp = props => {
                             No
                         </label>
                     </div>
+                    {loading ? 
                     <Button type="primary" htmlType="submit" style={{ marginTop: "10px", width: "100%", backgroundColor: "#D63D19", border: "1px solid #D63D19", fontWeight: "700"}}>
-                        Sign Up
+                        Loading...
+                    </Button> : 
+                    <Button type="primary" htmlType="submit" style={{ marginTop: "10px", width: "100%", backgroundColor: "#D63D19", border: "1px solid #D63D19", fontWeight: "700"}}>
+                    Sign Up
                     </Button>
+                }
+                    
             </Form>
         </Col>
     </div>
