@@ -54,6 +54,7 @@ const SignUp = props => {
                     placeholder="First Name"
                     onChange={handleChange}
                     name="first_name"
+                    required
                 />
                 </Form.Item>
                 <Form.Item>
@@ -62,6 +63,7 @@ const SignUp = props => {
                     placeholder="Last Name"
                     onChange={handleChange}
                     name="last_name"
+                    required
                 />
                 </Form.Item>
                 <Form.Item>
@@ -70,6 +72,7 @@ const SignUp = props => {
                     placeholder="Email Address"
                     onChange={handleChange}
                     name="email_address"
+                    required
                 />
                 </Form.Item>
                 <Form.Item>
@@ -78,6 +81,7 @@ const SignUp = props => {
                     placeholder="Password"
                     onChange={handleChange}
                     name="password"
+                    required
                 />
                 </Form.Item>
                 <Form.Item>
@@ -87,10 +91,10 @@ const SignUp = props => {
                     name="mobile_number"
                 />
                 </Form.Item>
-                <label for="super_user">Are you super user?</label>
+                <label for="super_user">Are you super user? </label>
                     <div className="radio-input">
                         <label>
-                            <Input type="radio" id="super_user" name="super_user" value="true"  onChange={handleChange}/>
+                            <Input type="radio" id="super_user" name="super_user" value="true" required onChange={handleChange}/>
                             Yes
                         </label>
                         <label>
@@ -101,7 +105,7 @@ const SignUp = props => {
                 <label for="org_user">Are you organization user?</label>
                     <div className="radio-input">
                         <label>
-                            <Input type="radio" id="org_user" name="org_user" value="true"  onChange={handleChange}/>
+                            <Input type="radio" id="org_user" name="org_user" value="true" required onChange={handleChange}/>
                             Yes
                         </label>
                         <label>
@@ -112,7 +116,7 @@ const SignUp = props => {
                 <label for="org_admin">Are you organization admin?</label>
                     <div className="radio-input">
                         <label>
-                            <Input type="radio" id="org_admin" name="org_admin" value="true"  onChange={handleChange}/>
+                            <Input type="radio" id="org_admin" name="org_admin" value="true" required  onChange={handleChange}/>
                             Yes
                         </label>
                         <label>
