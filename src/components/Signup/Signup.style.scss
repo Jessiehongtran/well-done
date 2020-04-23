@@ -1,0 +1,31 @@
+
+// .signup {
+//     width: 100%;
+//     background-image: url("https://res.cloudinary.com/dfulxq7so/image/upload/v1572452572/malawi20100165_cesh8j.jpg") ;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: bottom;
+//     background-attachment: fixed;
+//     height: auto;
+    
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        label {
+            color: #5C5858
+        }
+
+        .radio-input {
+            display: flex;
+            
+            label {
+                margin-right: 10px;
+                color: #5C5858
+            }
+        }
+    }
+// }
