@@ -15,6 +15,8 @@ function App(props) {
   // const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null);
 
+  const token = localStorage.getItem('token')
+
   console.log("searchFiltered in App", searchFiltered)
 
   return (
@@ -33,7 +35,8 @@ function App(props) {
       </MetaTags>
 
       <Switch>
-        <Route exact path="/signin" component={Landing} />
+        {token? <Route exact path="/" component={Landing} />: <Route exact path="/" component={SignUp} />}
+        {/* <Route exact path="/signin" component={Landing} /> */}
         <Route exact path="/" component={SignUp} />
         <PrivateRoute
           path="/dashboard"

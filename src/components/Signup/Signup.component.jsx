@@ -32,8 +32,8 @@ const SignUp = props => {
       .post("https://welldone-server.herokuapp.com/api/accounts", user)
       .then(res => {
         console.log("res in signup", res.data);
-        
-        props.history.push("/signin");
+        localStorage.setItem('token', res.data.token)
+        props.history.push("/dashboard");
       })
       .catch(err => {
         console.log(err);
