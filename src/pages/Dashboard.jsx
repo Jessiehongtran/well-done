@@ -8,11 +8,11 @@ import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 const Dashboard = props => {
     console.log('props in Dashboard', props)
     const [viewport, setViewport] = useState({
-        latitude: 13.004758,
-        longitude: 105.784788,
+        latitude: 13.8076,
+        longitude: 107.0185,
         width: "100vw",
         height: "100vh",
-        zoom: 2,
+        zoom: 10,
         // center: [13.043945, 105.221241]
     })
     const [funcToggle, setFuncToggle] = useState(true)
@@ -48,50 +48,50 @@ const Dashboard = props => {
       }, []);
 
     const zoomInto = () => {
-        // console.log('checkkk', props.searchFiltered.length)
-        // // props.searchFiltered[0].map(place => {
-        // if (props.searchFiltered.length == 0){
-        //         setViewport({
-        //             latitude: 13.5651,
-        //             longitude: 104.7538,
-        //             width: "100vw",
-        //             height: "100vh",
-        //             zoom: 8
-        //         })
-        //     }
-        // else if(props.searchFiltered.length == 1){
-        //     const searchedPlace = {
-        //         latitude: props.searchFiltered[0].latitude,
-        //         longitude: props.searchFiltered[0].longitude,
-        //         width: "100vw",
-        //         height: "100vh",
-        //         zoom: 11
-        //     }
-        //     console.log('searchPlace one', searchedPlace)
-        //     setViewport(searchedPlace)  
-        // }
-        // else if(props.searchFiltered.length > 1) {
-        //     function avgCoordinate(arr){
-        //         var totalLat = 0
-        //         var totalLon = 0
-        //         for (let i=0; i<arr.length; i++){
-        //             totalLat += arr[i].latitude
-        //             totalLon += arr[i].longitude
-        //         }
-        //         const avgLat = totalLat/arr.length;
-        //         const avgLon = totalLon/arr.length;
-        //         return [avgLat, avgLon]
-        //     }
-            // const searchedPlace = {
-            //         latitude: avgCoordinate(props.searchFiltered)[0],
-            //         longitude: avgCoordinate(props.searchFiltered)[1],
-            //         width: "100vw",
-            //         height: "100vh",
-            //         zoom: 11
-            //     }
-            // console.log('searchPlace many', searchedPlace)
-            // setViewport(searchedPlace)
-            // }
+        console.log('checkkk', props.searchFiltered.length)
+        // props.searchFiltered[0].map(place => {
+        if (props.searchFiltered.length == 0){
+                setViewport({
+                    latitude: 13.5651,
+                    longitude: 104.7538,
+                    width: "100vw",
+                    height: "100vh",
+                    zoom: 8
+                })
+            }
+        else if(props.searchFiltered.length == 1){
+            const searchedPlace = {
+                latitude: props.searchFiltered[0].latitude,
+                longitude: props.searchFiltered[0].longitude,
+                width: "100vw",
+                height: "100vh",
+                zoom: 11
+            }
+            console.log('searchPlace one', searchedPlace)
+            setViewport(searchedPlace)  
+        }
+        else if(props.searchFiltered.length > 1) {
+            function avgCoordinate(arr){
+                var totalLat = 0
+                var totalLon = 0
+                for (let i=0; i<arr.length; i++){
+                    totalLat += arr[i].latitude
+                    totalLon += arr[i].longitude
+                }
+                const avgLat = totalLat/arr.length;
+                const avgLon = totalLon/arr.length;
+                return [avgLat, avgLon]
+            }
+            const searchedPlace = {
+                    latitude: avgCoordinate(props.searchFiltered)[0],
+                    longitude: avgCoordinate(props.searchFiltered)[1],
+                    width: "100vw",
+                    height: "100vh",
+                    zoom: 11
+                }
+            console.log('searchPlace many', searchedPlace)
+            setViewport(searchedPlace)
+            }
     }
 
     useEffect(() => {
@@ -114,14 +114,14 @@ const Dashboard = props => {
                 selectedPump = {props.selectedPump}
                 setSelectedPump = {props.setSelectedPump}
             />
-            {/* <Search 
+            <Search 
                 searchFiltered = {props.searchFiltered}
                 setSearchFiltered = {props.setSearchFiltered}
                 viewport = {viewport}
                 setViewport = {setViewport}
 
                 sensors = {sensorInDashboard}
-            /> */}
+            />
             <Filter 
                 searchFiltered = {props.searchFiltered}
                 setSearchFiltered = {props.setSearchFiltered}

@@ -37,18 +37,17 @@ function App(props) {
         <Route exact path="/" component={SignUp} />
         <PrivateRoute
           path="/dashboard"
+          page={Dashboard}
           searchFiltered={searchFiltered}
           setSearchFiltered={setSearchFiltered}
           selectedPump={selectedPump}
           setSelectedPump={setSelectedPump}
-          // page={Dashboard}
-          component={Dashboard}
-        />
+          />
         <PrivateRoute
           path="/monitorDetails"
           page={MonitorDetails}
           selectedPump={selectedPump}
-        />
+          />
         <PrivateRoute path="/overview" page={Monitors} />
         <PrivateRoute path="/settings" page={Settings} />
       </Switch>
